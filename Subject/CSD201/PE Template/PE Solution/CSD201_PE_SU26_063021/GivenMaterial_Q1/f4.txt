@@ -1,0 +1,4 @@
+Current Readers:
+(R01,An)(R02,Binh)(R03,Chi)(R04,Dung)(R05,Em)
+Counting readers with ID > R03:
+Result: 2
