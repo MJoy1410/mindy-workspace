@@ -1,0 +1,53 @@
+html, body {
+    min-height: 100%;
+}
+
+.app-bg {
+    background: #f5f7fa;
+}
+
+.page-wrap {
+    padding-top: 90px;
+}
+
+.card-shadow {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+}
+
+.user-info {
+    line-height: 1.8;
+}
+
+.top-space {
+    margin-top: 28px;
+}
+
+.bottom-space {
+    padding-bottom: 40px;
+}
+
+.search-field input {
+    min-width: 330px;
+}
+
+.result-table th,
+.result-table td {
+    vertical-align: middle !important;
+}
+
+@media (max-width: 767px) {
+    .page-wrap {
+        padding-top: 35px;
+    }
+
+    .search-field,
+    .search-field input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .form-inline .form-group,
+    .form-inline .btn {
+        margin-bottom: 10px;
+    }
+}
