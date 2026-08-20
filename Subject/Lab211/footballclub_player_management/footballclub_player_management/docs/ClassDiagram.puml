@@ -1,0 +1,41 @@
+@startuml
+abstract class FootballEntity {
+  - id: String
+  + getId(): String
+  + toDataString(): String
+}
+class Club {
+  - name: String
+  - sponsorBrand: String
+  - budget: double
+}
+class Player {
+  - clubId: String
+  - name: String
+  - position: String
+  - shirtNumber: int
+}
+class ClubList
+class PlayerList
+class DataManager
+class Menu
+class Inputter
+class Utils
+class FootballClubPlayerManagement
+
+FootballEntity <|-- Club
+FootballEntity <|-- Player
+ClubList "1" o-- "0..*" Club
+PlayerList "1" o-- "0..*" Player
+PlayerList --> ClubList : validates club / obtains club name
+DataManager --> ClubList
+DataManager --> PlayerList
+DataManager --> Utils : reads / writes files
+ClubList --> Inputter : handles input
+PlayerList --> Inputter : handles input
+Menu --> Inputter : reads choice
+FootballClubPlayerManagement --> Menu
+FootballClubPlayerManagement --> ClubList
+FootballClubPlayerManagement --> PlayerList
+FootballClubPlayerManagement --> DataManager
+@enduml

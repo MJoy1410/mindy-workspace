@@ -1,0 +1,60 @@
+@startuml
+package model {
+  abstract class Employee {
+    - id: String
+    - name: String
+    - baseSalary: double
+    - workingDays: int
+    - bonus: double
+    - status: String
+    + getRole(): String
+    + calculateMonthlyPayroll(): double
+  }
+
+  class Developer
+  class Tester
+  class Manager
+  class HR
+
+  Employee <|-- Developer
+  Employee <|-- Tester
+  Employee <|-- Manager
+  Employee <|-- HR
+}
+
+package interfaces {
+  interface I_EmployeeList
+  interface I_Menu
+}
+
+package controllers {
+  class EmployeeList
+  class DataManager
+  class Menu
+}
+
+package utils {
+  class Inputter
+  class Utils
+}
+
+package view {
+  class EmployeePayrollManagement
+}
+
+ArrayList <|-- EmployeeList
+I_EmployeeList <|.. EmployeeList
+ArrayList <|-- Menu
+I_Menu <|.. Menu
+EmployeeList --> Employee
+DataManager --> EmployeeList
+DataManager --> Employee
+EmployeePayrollManagement --> EmployeeList
+EmployeePayrollManagement --> DataManager
+EmployeePayrollManagement --> Menu
+DataManager ..> Utils
+DataManager ..> Inputter
+EmployeeList ..> Inputter
+Menu ..> Inputter
+EmployeePayrollManagement ..> Inputter
+@enduml

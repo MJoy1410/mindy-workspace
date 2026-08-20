@@ -1,0 +1,36 @@
+@startuml
+start
+:Start application;
+repeat
+  :Display 9-function menu;
+  :Read choice;
+  if (Choice?) then (1)
+    :Load employees.txt;
+    :Validate each line;
+    :Skip invalid/duplicate lines;
+  elseif (2)
+    :Add and validate employee;
+  elseif (3)
+    :Update role/salary/bonus/status;
+  elseif (4)
+    :Remove employee by ID;
+  elseif (5)
+    :Search by ID/name/role/status;
+  elseif (6)
+    :Calculate payroll for active employees;
+  elseif (7)
+    :Display employee list;
+  elseif (8)
+    :Save employees.txt;
+  else (9)
+    if (Data changed?) then (yes)
+      :Ask whether to save;
+      if (Save?) then (yes)
+        :Save employees.txt;
+      endif
+    endif
+    :Exit;
+    stop
+  endif
+repeat while (Continue?) is (yes)
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+start
+:Create ClubList, PlayerList, DataManager;
+:Load clubs.txt and players.txt automatically;
+repeat
+  :Display 14-function menu;
+  :Read validated choice;
+  if (Choice 1..13?) then (yes)
+    :Execute selected club/player/file function;
+    :Update changed flag when data changes;
+  else (14)
+    if (Data changed?) then (yes)
+      :Save clubs.txt and players.txt;
+    endif
+    :Print Goodbye;
+    stop
+  endif
+repeat while (Continue) is (yes)
+@enduml
